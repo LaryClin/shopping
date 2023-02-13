@@ -42,13 +42,12 @@ export const useCatalog = defineStore("product-store", {
       const response = await fetch("https://fakestoreapi.com/product/${id}");
       try {
         const result = await response.json();
-        this.newProduct = result;
+        this.product = result;
       } catch (err) {
         this.product = null;
         console.error("Error loading new product:", err);
         return err;
       }
-
       this.fetching = false;
     },
   },
